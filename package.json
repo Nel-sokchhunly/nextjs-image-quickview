@@ -2,7 +2,7 @@
   "name": "nextjs-image-quickview",
   "displayName": "nextjs-image-quickview",
   "description": "an extension for quick-viewing a Nextjs Image tag by hover over the \"src\" attribute",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "publisher": "nelsokchhunly",
   "engines": {
