@@ -2,8 +2,6 @@
 
 This extension allows you to quickly view images in your Next.js project.
 
-![Version](https://vsmarketplacebadge.apphb.com/version/nextjs-image-quickview.svg)
-![Downloads](https://vsmarketplacebadge.apphb.com/downloads/nextjs-image-quickview.svg)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 ## Features
