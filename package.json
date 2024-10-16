@@ -1,10 +1,12 @@
 {
   "name": "nextjs-image-quickview",
-  "displayName": "nextjs-image-quickview",
-  "description": "an extension for quick-viewing a Nextjs Image tag by hover over the \"src\" attribute",
-  "version": "1.0.2",
+  "displayName": "Nextjs Image Quickview",
+  "description": "an extension for quick-viewing a Nextjs Image tag by hover over the \"src\" attribute or the Image tag name of Nextjs Image component",
+  "version": "1.0.0",
   "license": "MIT",
-  "publisher": "nelsokchhunly",
+  "publisher": "Nelsokchhunly",
+  "icon": "./res/icon.jpg",
+  "repository": "https://github.com/Nel-sokchhunly/nextjs-image-quickview",
   "engines": {
     "vscode": "^1.94.0"
   },
@@ -17,13 +19,6 @@
   ],
   "main": "./dist/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "nextjs-image-quickview.helloWorld",
-        "title": "Hello World"
-      }
-    ]
-  
   },
   "scripts": {
     "vscode:prepublish": "npm run esbuild-base -- --minify",
