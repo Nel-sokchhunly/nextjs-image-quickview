@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-image-quickview",
+  "name": "next-image-quickview",
   "displayName": "Nextjs Image Quickview",
   "description": "an extension for quick-viewing a Nextjs Image tag by hover over the \"src\" attribute or the Image tag name of Nextjs Image component",
   "version": "1.0.0",
