@@ -13,12 +13,15 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onLanguage:javascriptreact",
-    "onLanguage:typescriptreact"
-  ],
+  "activationEvents": ["onStartupFinished"],
   "main": "./dist/extension.js",
   "contributes": {
+    "commands": [
+      {
+        "command": "extension.sayHello",
+        "title": "Say Hello"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "npm run esbuild-base -- --minify",
