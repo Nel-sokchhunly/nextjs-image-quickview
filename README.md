@@ -10,7 +10,13 @@ Nextjs Image Quickview allows you to quickly view images in your Nextjs project 
 
 - Works with Nextjs Image component that use relative paths or https urls.
 
-## Usage 
+### Supported Framework
+
+- [x] NextJS
+- [] VueJS
+- [] Svelte
+
+## Usage
 
 Hover over the "src" attribute directly or hover over the Image tag name of the Nextjs Image component.
 

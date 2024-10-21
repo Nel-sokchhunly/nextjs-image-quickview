@@ -13,10 +13,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onLanguage:javascriptreact",
-    "onLanguage:typescriptreact"
-  ],
+  "activationEvents": ["onStartupFinished"],
   "main": "./dist/extension.js",
   "contributes": {
   },
