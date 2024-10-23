@@ -2,7 +2,7 @@
   "name": "next-image-quickview",
   "displayName": "Nextjs Image Quickview",
   "description": "an extension for quick-viewing a Nextjs Image tag by hover over the \"src\" attribute or the Image tag name of Nextjs Image component",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "publisher": "Nelsokchhunly",
   "icon": "./res/icon.jpg",
@@ -13,10 +13,7 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [
-    "onLanguage:javascriptreact",
-    "onLanguage:typescriptreact"
-  ],
+  "activationEvents": ["onStartupFinished"],
   "main": "./dist/extension.js",
   "contributes": {
   },

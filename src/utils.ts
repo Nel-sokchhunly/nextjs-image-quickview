@@ -35,34 +35,82 @@ export function getHoverSrc(
       return;
     }
 
-    return pullValueFromSrcAttribute(content);
+    return content;
   } else if (word === "src") {
     const rowIdx = position.line;
 
     // get the content of the line
     const line = document.lineAt(rowIdx).text;
 
-    console.log("line", line);
-
-    return pullValueFromSrcAttribute(line);
+    return line;
   } else {
     return null;
   }
 }
 
-const pullValueFromSrcAttribute = (content: string) => {
+const findPathFromVariable = (
+  variable: string,
+  document: vscode.TextDocument
+) => {
+  // find the line of the variable imported
+  // regex to find the import statement
+  // retrive the path string of the import
+  const findImportValueRegex = new RegExp(
+    "^(?:import " + variable + ` from ['"])(.+)(?:['"];{0,1}$)`,
+    "gm"
+  );
+
+  const path = document.getText().match(findImportValueRegex);
+
+  if (!path) {
+    return null;
+  }
+
+  const pathString = path[0].replace(findImportValueRegex, "$1");
+
+  return pathString;
+};
+
+export const pullValueFromSrcAttribute = (
+  content: string,
+  document: vscode.TextDocument
+): {
+  path: string;
+  type: "path" | "variable";
+} | null => {
   // regex to find src attribute
-  const srcRegex = /src="([^"]*)"/;
+  const pathStringRegex = /src="([^"]*)"/; // for validate if a src take in a path string
+  const variableRegex = /src={([^"]*)}/; // for validate if a src take in variable instead of string
 
   // remove all line breaks
   content = content.replace(/\n/g, "");
   // remove all white-spaces
   content = content.replace(/\s/g, "");
 
-  const srcMatch = content.match(srcRegex);
-  if (!srcMatch) {
+  const isPathString = content.match(pathStringRegex);
+  const isVariable = content.match(variableRegex);
+
+  if (!isPathString && !isVariable) {
     return null;
   }
 
-  return srcMatch[1];
+  if (isPathString) {
+    return {
+      path: isPathString[1],
+      type: "path",
+    };
+  }
+
+  if (isVariable) {
+    const path = findPathFromVariable(isVariable[1], document);
+    if (!path) {
+      return null;
+    }
+    return {
+      path: path,
+      type: "variable",
+    };
+  }
+
+  return null;
 };
